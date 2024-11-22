@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Listas de Tareas, Hábitos y Metas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 80%;
+            max-width: 900px;
+            margin-top: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h3 {
+            color: #28a745;
+        }
+
+        input[type="text"], input[type="date"], textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #f1f1f1;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        .actions button {
+            background-color: #dc3545;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .actions button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Generador de Listas: Tareas, Hábitos y Metas</h2>
+
+        <!-- Sección de hábitos -->
+        <div class="section">
+            <h3>Mis Hábitos</h3>
+            <input type="text" id="habitInput" placeholder="Añadir hábito..." />
+            <button onclick="addHabit()">Agregar Hábito</button>
+            <table id="habitTable">
+                <thead>
+                    <tr>
+                        <th>Hábito</th>
+                        <th>Completado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Hábitos se agregarán aquí -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Sección de metas -->
+        <div class="section">
+            <h3>Mis Metas</h3>
+            <input type="text" id="goalInput" placeholder="Añadir meta..." />
+            <input type="date" id="goalDate" />
+            <button onclick="addGoal()">Agregar Meta</button>
+            <table id="goalTable">
+                <thead>
+                    <tr>
+                        <th>Meta</th>
+                        <th>Fecha de Cumplimiento</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Metas se agregarán aquí -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Sección de tareas -->
+        <div class="section">
+            <h3>Mis Tareas</h3>
+            <input type="text" id="taskInput" placeholder="Añadir tarea..." />
+            <button onclick="addTask()">Agregar Tarea</button>
+            <table id="taskTable">
+                <thead>
+                    <tr>
+                        <th>Tarea</th>
+                        <th>Completado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Tareas se agregarán aquí -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Botón para imprimir -->
+        <button onclick="printPage()">Imprimir Lista</button>
+
+    </div>
+
+    <script>
+        // Función para agregar hábito
+        function addHabit() {
+            const habitInput = document.getElementById("habitInput");
+            const habitText = habitInput.value.trim();
+            if (habitText === "") {
+                alert("Por favor ingresa un hábito.");
+                return;
+            }
+
+            const table = document.getElementById("habitTable").getElementsByTagName("tbody")[0];
+            const newRow = table.insertRow();
+
+            newRow.innerHTML = `
+                <td>${habitText}</td>
+                <td><input type="checkbox" onclick="toggleCompletion(this)" /></td>
+                <td class="actions"><button onclick="removeItem(this)">Eliminar</button></td>
+            `;
+
+            habitInput.value = "";
+        }
+
+        // Función para agregar meta
+        function addGoal() {
+            const goalInput = document.getElementById("goalInput");
+            const goalDate = document.getElementById("goalDate");
+            const goalText = goalInput.value.trim();
+            const goalDateValue = goalDate.value;
+
+            if (goalText === "" || goalDateValue === "") {
+                alert("Por favor ingresa una meta y fecha.");
+                return;
+            }
+
+            const table = document.getElementById("goalTable").getElementsByTagName("tbody")[0];
+            const newRow = table.insertRow();
+
+            newRow.innerHTML = `
+                <td>${goalText}</td>
+                <td>${goalDateValue}</td>
+                <td class="actions"><button onclick="removeItem(this)">Eliminar</button></td>
+            `;
+
+            goalInput.value = "";
+            goalDate.value = "";
+        }
+
+        // Función para agregar tarea
+        function addTask() {
+            const taskInput = document.getElementById("taskInput");
+            const taskText = taskInput.value.trim();
+            if (taskText === "") {
+                alert("Por favor ingresa una tarea.");
+                return;
+            }
+
+            const table = document.getElementById("taskTable").getElementsByTagName("tbody")[0];
+            const newRow = table.insertRow();
+
+            newRow.innerHTML = `
+                <td>${taskText}</td>
+                <td><input type="checkbox" onclick="toggleCompletion(this)" /></td>
+                <td class="actions"><button onclick="removeItem(this)">Eliminar</button></td>
+            `;
+
+            taskInput.value = "";
+        }
+
+        // Función para alternar la marca de completado
+        function toggleCompletion(checkbox) {
+            const row = checkbox.closest("tr");
+            const cells = row.getElementsByTagName("td");
+            if (checkbox.checked) {
+                cells[0].classList.add("completed");
+            } else {
+                cells[0].classList.remove("completed");
+            }
+        }
+
+        // Función para eliminar un ítem
+        function removeItem(button) {
+            const row = button.closest("tr");
+            row.remove();
+        }
+    </script>
+    <script>
+        // Función para imprimir la página
+        function printPage() {
+            window.print();
+        }
+    </script>
+    
+    <style>
+        /* Estilos específicos para la impresión */
+        @media print {
+            body {
+                background-color: #fff;
+                margin: 0;
+                padding: 0;
+            }
+    
+            .container {
+                width: 100%;
+                box-shadow: none;
+                padding: 0;
+                border-radius: 0;
+            }
+    
+            h2 {
+                text-align: center;
+                font-size: 20px;
+            }
+    
+            .section {
+                margin-bottom: 30px;
+            }
+    
+            .section h3 {
+                color: #28a745;
+                font-size: 18px;
+            }
+    
+            /* Ocultar los elementos de entrada y botones durante la impresión */
+            input[type="text"], input[type="date"], button {
+                display: none;
+            }
+    
+            /* Estilo de las tablas para la impresión */
+            table {
+                border: 1px solid #000;
+                width: 100%;
+                margin-top: 20px;
+                border-collapse: collapse;
+            }
+    
+            table th, table td {
+                border: 1px solid #000;
+                padding: 10px;
+                text-align: center;
+                font-size: 14px;
+            }
+    
+            table th {
+                background-color: #f1f1f1;
+            }
+    
+            .completed {
+                text-decoration: line-through;
+                color: #888;
+            }
+    
+            /* Eliminar las acciones (botones de eliminar) durante la impresión */
+            .actions {
+                display: none;
+            }
+        }
+    </style>
+    
+</body>
+</html>

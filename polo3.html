@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Rutinas de Ejercicio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .section {
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .table-container {
+            margin-top: 20px;
+        }
+
+        /* Estilos para la impresión */
+        @media print {
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+
+            table, th, td {
+                border: 1px solid #000;
+            }
+
+            button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Generador de Rutinas de Ejercicio en Casa</h1>
+
+<!-- Sección de Ejercicios por Nivel -->
+<div class="section">
+    <h2>Ejercicios por Nivel</h2>
+
+    <!-- Ejercicios de Principiante -->
+    <div class="table-container">
+        <h3>Ejercicios para Principiantes</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ejercicio</th>
+                    <th>Descripción</th>
+                    <th>Repeticiones/Series</th>
+                    <th>Consejos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sentadillas</td>
+                    <td>Párate con los pies al ancho de los hombros. Baja tus caderas hacia atrás como si fueras a sentarte en una silla y luego regresa a la posición inicial.</td>
+                    <td>3 series de 12-15 repeticiones</td>
+                    <td>Mantén la espalda recta y evita que las rodillas sobrepasen los dedos de los pies.</td>
+                </tr>
+                <tr>
+                    <td>Flexiones</td>
+                    <td>Acuéstate boca abajo, coloca las manos al nivel de los hombros y empuja hacia arriba hasta que los brazos estén extendidos.</td>
+                    <td>3 series de 8-12 repeticiones</td>
+                    <td>Asegúrate de mantener el cuerpo alineado y no dejar caer la cadera.</td>
+                </tr>
+                <tr>
+                    <td>Plancha</td>
+                    <td>Acuéstate boca abajo, apóyate sobre tus antebrazos y los dedos de los pies. Mantén el cuerpo recto y contrae el abdomen.</td>
+                    <td>3 series de 20-30 segundos</td>
+                    <td>Aprieta el abdomen y los glúteos para mantener la estabilidad del cuerpo.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Ejercicios Intermedios -->
+    <div class="table-container">
+        <h3>Ejercicios Intermedios</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ejercicio</th>
+                    <th>Descripción</th>
+                    <th>Repeticiones/Series</th>
+                    <th>Consejos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sentadillas con salto</td>
+                    <td>Realiza una sentadilla normal, pero al subir salta hacia arriba y luego regresa a la posición de sentadilla.</td>
+                    <td>3 series de 10-12 repeticiones</td>
+                    <td>Usa los brazos para impulsarte al saltar, y asegúrate de aterrizar suavemente.</td>
+                </tr>
+                <tr>
+                    <td>Flexiones con aplauso</td>
+                    <td>Haz una flexión normal, pero cuando empujas hacia arriba, añade un aplauso antes de volver a bajar.</td>
+                    <td>3 series de 6-10 repeticiones</td>
+                    <td>Realiza el aplauso rápidamente y ten cuidado de no perder el control del cuerpo.</td>
+                </tr>
+                <tr>
+                    <td>Burpees</td>
+                    <td>Desde una posición de pie, baja en cuclillas, realiza una flexión, luego salta hacia arriba y repite.</td>
+                    <td>3 series de 8-12 repeticiones</td>
+                    <td>Realiza el movimiento fluido, asegurándote de no encorvar la espalda durante la flexión.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Ejercicios Difíciles -->
+    <div class="table-container">
+        <h3>Ejercicios Difíciles</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ejercicio</th>
+                    <th>Descripción</th>
+                    <th>Repeticiones/Series</th>
+                    <th>Consejos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sentadillas con peso</td>
+                    <td>Realiza una sentadilla tradicional, pero con una barra o mancuernas para añadir resistencia.</td>
+                    <td>4 series de 8-10 repeticiones</td>
+                    <td>Asegúrate de mantener una postura adecuada y no sobrecargar el peso.</td>
+                </tr>
+                <tr>
+                    <td>Flexiones con palmada</td>
+                    <td>Haz una flexión normal, pero al subir, empuja el suelo con tanta fuerza que puedas aplaudir antes de bajar nuevamente.</td>
+                    <td>3 series de 5-8 repeticiones</td>
+                    <td>Practica el control en el descenso para evitar caídas accidentales.</td>
+                </tr>
+                <tr>
+                    <td>Mountain Climbers</td>
+                    <td>En posición de plancha, alterna llevando las rodillas hacia el pecho lo más rápido posible.</td>
+                    <td>4 series de 30 segundos</td>
+                    <td>Mantén la espalda recta y la cadera alineada con el cuerpo.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Ejercicios de Locura -->
+    <div class="table-container">
+        <h3>Ejercicios de Locura</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ejercicio</th>
+                    <th>Descripción</th>
+                    <th>Repeticiones/Series</th>
+                    <th>Consejos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pistol Squats</td>
+                    <td>Realiza una sentadilla de una sola pierna mientras mantienes la otra pierna extendida hacia adelante.</td>
+                    <td>3 series de 5-8 repeticiones por pierna</td>
+                    <td>Utiliza un soporte si es necesario y asegúrate de mantener el equilibrio.</td>
+                </tr>
+                <tr>
+                    <td>Handstand Pushups</td>
+                    <td>Colócate de pie contra la pared, haz una parada de manos y realiza flexiones mientras estás invertido.</td>
+                    <td>3 series de 4-6 repeticiones</td>
+                    <td>Realiza el movimiento controlado y no dejes caer la cabeza hacia el suelo.</td>
+                </tr>
+                <tr>
+                    <td>Muscle Ups</td>
+                    <td>Desde una barra de dominadas, realiza una tracción seguida de una empuje sobre la barra hasta quedar completamente arriba.</td>
+                    <td>3 series de 3-5 repeticiones</td>
+                    <td>Asegúrate de tener suficiente fuerza en los hombros y la espalda para completar el ejercicio correctamente.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Ejercicios "Sin músculo" (fáciles) -->
+    <div class="table-container">
+        <h3>Ejercicios "Sin músculo"</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ejercicio</th>
+                    <th>Descripción</th>
+                    <th>Repeticiones/Series</th>
+                    <th>Consejos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Marcha en el lugar</td>
+                    <td>Camina en el lugar elevando ligeramente las rodillas sin mucho esfuerzo.</td>
+                    <td>3 series de 1-2 minutos</td>
+                    <td>Hazlo de manera relajada y controla el movimiento de las piernas.</td>
+                </tr>
+                <tr>
+                    <td>Estiramiento de brazos</td>
+                    <td>Levanta los brazos por encima de la cabeza, y luego estira de un lado a otro.</td>
+                    <td>3 series de 30 segundos por lado</td>
+                    <td>Realiza el estiramiento de manera suave para evitar forzar los músculos.</td>
+                </tr>
+                <tr>
+                    <td>Sentadillas sin peso</td>
+                    <td>Haz sentadillas pero sin peso, solo con el peso de tu cuerpo.</td>
+                    <td>3 series de 12-15 repeticiones</td>
+                    <td>Concéntrate en la forma y el rango de movimiento completo.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+      <!-- Generador de rutina personalizada -->
+      <div class="section">
+        <h2>Generador de Rutina Personalizada</h2>
+        <label for="exerciseInput">Escribe el ejercicio:</label>
+        <input type="text" id="exerciseInput" placeholder="Ej. Sentadillas, Flexiones, Burpees">
+
+        <label for="timeReps">Cuántas repeticiones o tiempo:</label>
+        <input type="number" id="timeReps" placeholder="Ej. 15 repeticiones o 20 minutos">
+
+        <button onclick="addExerciseToRoutine()">Agregar ejercicio</button>
+
+        <h3>Mi Rutina Personalizada</h3>
+        <table id="customRoutineTable">
+            <thead>
+                <tr>
+                    <th>Ejercicio</th>
+                    <th>Duración / Repeticiones</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <button onclick="printRoutine()">Imprimir Mi Rutina</button>
+    </div>
+
+    <script>
+        // Función para agregar ejercicios a la tabla personalizada
+        function addExerciseToRoutine() {
+            const exercise = document.getElementById("exerciseInput").value.trim();
+            const timeReps = document.getElementById("timeReps").value;
+
+            if (!exercise || !timeReps) {
+                alert("Por favor, ingresa el nombre del ejercicio y el número de repeticiones o tiempo.");
+                return;
+            }
+
+            const table = document.getElementById("customRoutineTable").getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow(table.rows.length);
+
+            const cell1 = newRow.insertCell(0);
+            const cell2 = newRow.insertCell(1);
+
+            cell1.textContent = exercise;
+            cell2.textContent = timeReps;
+
+            document.getElementById("exerciseInput").value = ''; // Limpiar el campo de ejercicio
+            document.getElementById("timeReps").value = ''; // Limpiar el campo de repeticiones/tiempo
+        }
+
+        // Función para imprimir la rutina personalizada
+        function printRoutine() {
+            const printWindow = window.open('', '', 'height=600,width=800');
+            printWindow.document.write('<html><head><title>Mi Rutina Personalizada</title>');
+            printWindow.document.write('</head><body>');
+            printWindow.document.write('<h1>Mi Rutina Personalizada</h1>');
+            printWindow.document.write(document.getElementById('customRoutineTable').outerHTML);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        }
+    </script>
+</body>
+</html>

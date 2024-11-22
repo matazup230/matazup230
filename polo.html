@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Días de la Semana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .table-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 80%;
+            max-width: 900px;
+            margin-top: 20px;
+        }
+
+        .table-container h3 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #f1f1f1;
+        }
+
+        td {
+            position: relative;
+        }
+
+        .input-container {
+            margin-top: 10px;
+        }
+
+        .input-container input[type="file"] {
+            margin-top: 5px;
+        }
+
+        .input-container textarea {
+            width: 100%;
+            padding: 5px;
+            font-size: 14px;
+            height: 40px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .button-container button:hover {
+            background-color: #218838;
+        }
+
+        /* Estilos específicos para la impresión */
+        @media print {
+            body {
+                background-color: #fff;
+                margin: 0;
+                padding: 0;
+            }
+
+            .table-container {
+                width: 100%;
+                box-shadow: none;
+                padding: 0;
+                border-radius: 0;
+            }
+
+            table {
+                border: 1px solid #000;
+            }
+
+            th, td {
+                border: 1px solid #000;
+                padding: 10px;
+                text-align: center;
+            }
+
+            /* Ocultar los campos de selección de archivos en la impresión */
+            .input-container input[type="file"],
+            .input-container textarea {
+                display: none;
+            }
+
+            .input-container {
+                margin-top: 0;
+            }
+
+            /* Estilo del texto visible en impresión */
+            .input-container textarea {
+                display: block;
+                width: 90%;
+                margin: 5px auto;
+                font-size: 14px;
+                font-family: Arial, sans-serif;
+            }
+
+            .input-container img {
+                max-width: 100px;
+                max-height: 100px;
+                display: block;
+                margin: 5px auto;
+            }
+
+            /* Botón de impresión oculto en la versión impresa */
+            .button-container {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="table-container">
+        <h3>Tabla de Días de la Semana</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Lunes</th>
+                    <th>Martes</th>
+                    <th>Miércoles</th>
+                    <th>Jueves</th>
+                    <th>Viernes</th>
+                    <th>Sábado</th>
+                    <th>Domingo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <label><input type="checkbox" id="mondayCheck"> Marcar</label>
+                        <div class="input-container">
+                            <textarea placeholder="Frase para el día..."></textarea>
+                            <input type="file" onchange="loadImage(event, 'monday')">
+                        </div>
+                        <div id="mondayImage"></div>
+                    </td>
+                    <td>
+                        <label><input type="checkbox" id="tuesdayCheck"> Marcar</label>
+                        <div class="input-container">
+                            <textarea placeholder="Frase para el día..."></textarea>
+                            <input type="file" onchange="loadImage(event, 'tuesday')">
+                        </div>
+                        <div id="tuesdayImage"></div>
+                    </td>
+                    <td>
+                        <label><input type="checkbox" id="wednesdayCheck"> Marcar</label>
+                        <div class="input-container">
+                            <textarea placeholder="Frase para el día..."></textarea>
+                            <input type="file" onchange="loadImage(event, 'wednesday')">
+                        </div>
+                        <div id="wednesdayImage"></div>
+                    </td>
+                    <td>
+                        <label><input type="checkbox" id="thursdayCheck"> Marcar</label>
+                        <div class="input-container">
+                            <textarea placeholder="Frase para el día..."></textarea>
+                            <input type="file" onchange="loadImage(event, 'thursday')">
+                        </div>
+                        <div id="thursdayImage"></div>
+                    </td>
+                    <td>
+                        <label><input type="checkbox" id="fridayCheck"> Marcar</label>
+                        <div class="input-container">
+                            <textarea placeholder="Frase para el día..."></textarea>
+                            <input type="file" onchange="loadImage(event, 'friday')">
+                        </div>
+                        <div id="fridayImage"></div>
+                    </td>
+                    <td>
+                        <label><input type="checkbox" id="saturdayCheck"> Marcar</label>
+                        <div class="input-container">
+                            <textarea placeholder="Frase para el día..."></textarea>
+                            <input type="file" onchange="loadImage(event, 'saturday')">
+                        </div>
+                        <div id="saturdayImage"></div>
+                    </td>
+                    <td>
+                        <label><input type="checkbox" id="sundayCheck"> Marcar</label>
+                        <div class="input-container">
+                            <textarea placeholder="Frase para el día..."></textarea>
+                            <input type="file" onchange="loadImage(event, 'sunday')">
+                        </div>
+                        <div id="sundayImage"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="button-container">
+            <button onclick="printTable()">Imprimir Tabla</button>
+        </div>
+    </div>
+
+    <script>
+        // Función para cargar la imagen en el día correspondiente
+        function loadImage(event, day) {
+            const file = event.target.files[0];
+            if (file) {
+                const imgElement = document.createElement("img");
+                imgElement.src = URL.createObjectURL(file);
+                imgElement.alt = `Imagen del día ${day}`;
+                imgElement.style.width = "100px";
+                imgElement.style.height = "100px";
+                document.getElementById(`${day}Image`).innerHTML = ''; // Limpiar cualquier imagen previa
+                document.getElementById(`${day}Image`).appendChild(imgElement);
+            }
+        }
+
+        // Función para imprimir la tabla
+        function printTable() {
+            window.print();
+        }
+    </script>
+
+</body>
+</html>
